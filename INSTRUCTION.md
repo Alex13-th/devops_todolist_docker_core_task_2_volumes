@@ -9,13 +9,14 @@ docker volume create mysql_data
 ```bash
 docker run -d \
   --name mysql_container \
-  -e MYSQL_ROOT_PASSWORD=1234 \
+  -e MYSQL_ROOT_PASSWORD=devpassword123 \
   -e MYSQL_DATABASE=app_db \
   -e MYSQL_USER=app_user \
-  -e MYSQL_PASSWORD=1234 \
+  -e MYSQL_PASSWORD=devpassword123 \
   -v mysql_data:/var/lib/mysql \
   -p 3306:3306 \
   mysql:latest
+
 ```
 
 ## Step 2: Run the App container (connects to MySQL)
@@ -28,9 +29,10 @@ docker run -d \
   -e DB_PORT=3306 \
   -e DB_NAME=app_db \
   -e DB_USER=app_user \
-  -e DB_PASSWORD=1234 \
+  -e DB_PASSWORD=devpassword123 \
   -p 8080:8000 \
   alex13thx/todoapp-python:2.0.0
+
 ```
 
 ## 3: Access the application
